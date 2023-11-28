@@ -4,6 +4,9 @@
 Start rabbitmq:  
 `docker-compose up -d ddddd`
 
+Add messages to RabbitMQ queue:  
+`docker-compose up ddddd`
+
 ## Run `python` benchmark
 
 ## Run `go` benchmark
