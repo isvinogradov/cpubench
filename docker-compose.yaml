@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  rabbit:
+    image: "rabbitmq:3.11.22-management"
+    restart: "always"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      RABBITMQ_DEFAULT_USER: scanner
+      RABBITMQ_DEFAULT_PASS: scanner
+      RABBITMQ_DEFAULT_VHOST: /
