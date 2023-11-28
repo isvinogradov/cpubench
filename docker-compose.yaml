@@ -12,14 +12,12 @@ services:
       RABBITMQ_DEFAULT_PASS: scanner
       RABBITMQ_DEFAULT_VHOST: /
 
-  rabbit_data_filler:
+  rabbit_loader:
     build:
       context: .
-      dockerfile: mongo_writer/Dockerfile
-    image: "rabbit_data_filler"
+      dockerfile: pybench/Dockerfile
+    image: "rabbit_loader"
     restart: "no"
-    volumes:
-      - ./config.json:/scanner/config.json
     depends_on:
       - "rabbit"
     environment:
@@ -28,4 +26,3 @@ services:
     command:
       - "python3"
       - "mongo_writer/writer_history_logs.py"
-      - "/scanner/config.json"
